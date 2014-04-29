@@ -1,0 +1,188 @@
+<ehcache>
+
+    <!--
+        设置缓存文件的存放路径 
+        此设置用于在缓存数量超过设置的限制时或缓存方式设置为磁盘缓存时，指定将缓存内容序列化到磁盘的文件的路径，一般无需修改；
+
+        java.io.tmpdir指JRE的临时输入、输出文件目录。
+
+    -->
+    <diskStore path="java.io.tmpdir"/>
+
+    <!--
+        指明当一个Cache实例被执行add/remove等“事件”时，用于产生一个事件响应处理(listener)类实例的Factory类。
+
+        此项配置允许用户实现并注册自己的回调方法以对上述事件进行特殊处理，一般无需特殊配置。
+
+
+    -->
+    <cacheManagerEventListenerFactory class="" properties=""/>
+
+    <!--
+        配置节点服务提供的Factory类
+
+        属性说明：
+        class：
+
+            cacheManagerPeerProviderFactory的实现类
+        properties：
+
+            设置实现类的相关属性，其中:
+            peerDiscovery属性设置了节点之间相互“发现”的方式，这里设置为“automatic”，即“自动”发现。
+
+            （也可设置为“manual”，但需要设置“rmiUrls”属性来指明其它节点的地址和端口以及Cache实例名称，详见相关文档）
+            
+            multicastGroupAddress/Port：“自动发现”方式下，EHCache采用“广播”的方式将一个节点上的Cache内容的变化（或变化后的数据）
+            通知或发送到其它节点。此时需设置“广播组”的地址和端口（广播组的地址为虚拟地址，只要是格式正确的IP地址即可，无需在局域网内实际分配）。
+
+            注意：在一个集群环境中，如果采用广播方式进行通讯，所有节点都必须加入到同一个广播组，即广播组的地址和端口必须相同。
+
+
+    -->
+    <cacheManagerPeerProviderFactory
+            class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
+            properties="peerDiscovery=automatic,
+                        multicastGroupAddress=230.0.0.1,
+                        multicastGroupPort=4446"/>
+
+
+    <!--
+        配置节点服务监听的Factory类
+
+        属性说明：
+        class：
+
+            cacheManagerPeerListenerFactory的实现类
+        properties：
+
+            设置实现类的相关属性，其中:
+            hostName属性需为当前节点所在机器的ip地址或主机名，不设置则默认为当前节点所在机器的ip地址，但不能显式的设置为“localhost”
+
+            port属性为监听端口，如果在一台机器上有两个节点同时存在，此端口需配置为不同的值，以避免端口冲突
+
+            socketTimeoutMillis属性设置了tcp协议的通讯超时时间，单位为毫秒。
+
+    -->
+    <cacheManagerPeerListenerFactory
+            class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"
+            properties="port=40001,
+                        socketTimeoutMillis=120000"/>
+
+    <!-- ======================Cache configurations====================== -->
+    <!--
+        默认的Cache配置，此项配置不可缺少。
+
+        定义了默认的Cache属性，当用户自定义的Cache实例不定义某些属性时，默认继承在这里配置的相关属性。
+
+        属性说明：
+        下列属性必须设置：
+        maxElementsInMemory：
+
+            设置在内存中缓存对象的最大的个数
+        eternal：
+
+            设置Cache中的缓存对象是否是“永久的”，如果设置为true，则会忽略“timeout”的设置，除非对象被remove掉，否则一直存在于Cache中永不过期。
+
+        overflowToDisk：
+
+            设置当Cache中缓存的对象超过maxElementsInMemory的限制时，是否将多余的对象缓冲到磁盘上。
+
+            取值：true/false。
+
+        
+        下列属性可选：
+        timeToIdleSeconds：
+
+            设置Cache中的缓存对象在过期前的“闲置”时间。所谓“闲置”时间是指一个缓存对象在最后一次被访问的时间和当前的时间之差。
+
+            单位：秒
+            默认：0，表示闲置时间可无穷大。
+
+        
+        timeToLiveSeconds：
+
+            设置Cache中的缓存对象在过期前的“生存”时间。所谓“生存”时间是指一个缓存对象被创建的时间和当前的时间之差。
+
+            单位：秒
+            默认：0，表示生存时间可无穷大。
+
+        diskPersistent：
+
+            设置Cache中缓冲到磁盘上的的缓存对象在JVM重启时是否持久。
+
+            取值：true/false;
+            默认：false
+        diskExpiryThreadIntervalSeconds：
+
+            设置磁盘缓冲区清理线程的运行间隔时间。
+
+            单位：秒；
+
+            默认：120
+        memoryStoreEvictionPolicy：
+
+            设置当Cache中的缓存的对象超过最大数限制时的清理（缓冲）策略。
+
+            取值：LRU(Least Recently Used)
+               FIFO(First In First Out)
+               LFU(Less Frequently Used)
+            默认：LRU
+    -->
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="true"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU">
+     </defaultCache>
+
+    <!--
+        Cache configuration for com.excel.appdemo.cache.METHOD_CACHE
+    -->
+    <cache name="gov.szsf.portal.cache.ETERNAL_CACHE"
+           maxElementsInMemory="10000"
+           eternal="true"
+           overflowToDisk="true"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600">
+           <cacheEventListenerFactory 
+                class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"
+                properties="replicateAsynchronously=true,
+                            replicatePuts=false,
+                            replicateUpdates=true,
+                            replicateRemovals=true,
+                            replicateUpdatesViaCopy=false"/>
+    </cache>
+    <cache name="gov.szsf.portal.cache.TIMEOUT_CACHE"
+           maxElementsInMemory="10000"
+           eternal="false"
+           overflowToDisk="true"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="7200">
+           <cacheEventListenerFactory 
+                class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"
+                properties="replicateAsynchronously=true,
+                            replicatePuts=false,
+                            replicateUpdates=true,
+                            replicateRemovals=true,
+                            replicateUpdatesViaCopy=false"/>
+    </cache>
+    <cache name="gov.szsf.portal.cache.MEMORY_CACHE"
+           maxElementsInMemory="10000"
+           eternal="true"
+           overflowToDisk="true"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600">
+           <cacheEventListenerFactory 
+                class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"
+                properties="replicateAsynchronously=true,
+                            replicatePuts=true,
+                            replicateUpdates=true,
+                            replicateRemovals=true,
+                            replicateUpdatesViaCopy=true"/>
+    </cache>
+
+</ehcache>

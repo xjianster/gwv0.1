@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>用户中心-首页</title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="css/common.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/stb.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
+	</head>
+	
+	<body onload="renderBottom();renderMenu1()">
+		<iframe id="barframe" src="bar.vm"></iframe>
+		<div id="main">
+			<div id="menu1">
+  				<ul id="menu1list"></ul>
+  			</div>
+			<div id="menu2">
+				<ul id="menu2list"></ul>
+			</div>
+			<div id="content">
+				<div style="position:absolute;left:45%; top:45%;height:76px;width:250px">
+				<img src="img/building.gif">
+				<p style="color:#fff;font-weight:bold;display:block">正在建设中</p>
+			</div>
+			</div>
+		</div>
+		<div id="bottom"></div>
+	</body
+</html>

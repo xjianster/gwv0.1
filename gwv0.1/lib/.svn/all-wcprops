@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/repos/self2/!svn/ver/123/lib
+END
+struts.jar
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/repos/self2/!svn/ver/1/lib/struts.jar
+END
+commons-collections-3_1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/repos/self2/!svn/ver/1/lib/commons-collections-3_1.jar
+END
+commons-lang-2_1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/repos/self2/!svn/ver/1/lib/commons-lang-2_1.jar
+END
+ngoss-depends.jar
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/repos/self2/!svn/ver/123/lib/ngoss-depends.jar
+END
+commons-discovery-0.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/repos/self2/!svn/ver/1/lib/commons-discovery-0.2.jar
+END
+log4j.jar
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/repos/self2/!svn/ver/1/lib/log4j.jar
+END
+dom4j-1_6_1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/repos/self2/!svn/ver/1/lib/dom4j-1_6_1.jar
+END
+nuxeo-common-1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/repos/self2/!svn/ver/1/lib/nuxeo-common-1.0.jar
+END
+commons-dbcp.jar
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/repos/self2/!svn/ver/1/lib/commons-dbcp.jar
+END
+commons-pool.jar
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/repos/self2/!svn/ver/1/lib/commons-pool.jar
+END
+javax.persistence_2.0.0.v200911271158.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/repos/self2/!svn/ver/1/lib/javax.persistence_2.0.0.v200911271158.jar
+END
+commons-beanutils-1_7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/repos/self2/!svn/ver/1/lib/commons-beanutils-1_7.jar
+END
+commons-codec-1.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/repos/self2/!svn/ver/1/lib/commons-codec-1.3.jar
+END
+commons-httpclient-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/repos/self2/!svn/ver/1/lib/commons-httpclient-3.1.jar
+END
+commons-collections-3.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/repos/self2/!svn/ver/1/lib/commons-collections-3.2.1.jar
+END
+velocity-tools-2.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/repos/self2/!svn/ver/1/lib/velocity-tools-2.0.jar
+END
+commons-lang-2.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/repos/self2/!svn/ver/1/lib/commons-lang-2.4.jar
+END
+commons-validator-1_2_0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/repos/self2/!svn/ver/1/lib/commons-validator-1_2_0.jar
+END
+commons-logging-1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/repos/self2/!svn/ver/1/lib/commons-logging-1.1.jar
+END
+commons-email-1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/repos/self2/!svn/ver/1/lib/commons-email-1.0.jar
+END
+commons-fileupload.jar
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/repos/self2/!svn/ver/1/lib/commons-fileupload.jar
+END
+commons-configuration-1_2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/repos/self2/!svn/ver/1/lib/commons-configuration-1_2.jar
+END
+velocity-1.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/repos/self2/!svn/ver/1/lib/velocity-1.7.jar
+END
+commons-digester-1_6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/repos/self2/!svn/ver/1/lib/commons-digester-1_6.jar
+END
+oro-2.0.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/repos/self2/!svn/ver/1/lib/oro-2.0.8.jar
+END
+spring.jar
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/repos/self2/!svn/ver/1/lib/spring.jar
+END

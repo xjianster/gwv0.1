@@ -1,0 +1,91 @@
+8
+
+dir
+318
+http://211.144.118.26/svn/repos/self2
+http://211.144.118.26/svn/repos/self2
+
+
+
+2011-03-21T07:51:53.340433Z
+318
+xiab
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a11755f8-5ed1-47df-9628-0a3a5de065b5
+
+.classpath
+file
+
+
+
+
+2011-03-21T10:24:14.921875Z
+c7faee66c650664a3c463e07ac8f1dcd
+2011-03-11T00:33:20.748703Z
+127
+xiab
+
+WebRoot
+dir
+
+exlib
+dir
+
+.project
+file
+
+
+
+
+2011-03-21T10:24:14.937500Z
+f704a551f5286c86fec1b4b50d440b4a
+2011-02-22T01:59:44.951641Z
+1
+xiab
+
+lib
+dir
+
+src
+dir
+
+build.properties
+file
+
+
+
+
+2011-03-21T10:24:14.953125Z
+60dfbc940f5bd862e1a8fba255af2e10
+2011-02-22T01:59:44.951641Z
+1
+xiab
+
+template
+dir
+
+build.xml
+file
+
+
+
+
+2011-03-21T10:24:14.968750Z
+10498de94d1d4e0191e9f4897e44ed12
+2011-03-10T23:57:58.761918Z
+123
+xiab
+

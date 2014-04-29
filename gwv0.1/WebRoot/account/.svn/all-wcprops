@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/repos/self2/!svn/ver/231/WebRoot/account
+END
+detailthismonth.vm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/repos/self2/!svn/ver/197/WebRoot/account/detailthismonth.vm
+END
+detailresult.vm
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/repos/self2/!svn/ver/195/WebRoot/account/detailresult.vm
+END
+detail.vm
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/repos/self2/!svn/ver/231/WebRoot/account/detail.vm
+END
+chargeresult.vm
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/repos/self2/!svn/ver/195/WebRoot/account/chargeresult.vm
+END
+bookresult.vm
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/repos/self2/!svn/ver/195/WebRoot/account/bookresult.vm
+END
+charge.vm
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/repos/self2/!svn/ver/175/WebRoot/account/charge.vm
+END
+book.vm
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/repos/self2/!svn/ver/231/WebRoot/account/book.vm
+END

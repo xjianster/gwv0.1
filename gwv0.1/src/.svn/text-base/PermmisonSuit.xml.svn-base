@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<permmisonsuit>
+	<!--
+	<suit key="goodsManagement.*" value="p_appdemo_goods_management"/>
+    <suit key="goodsManagement.modifyGoods" value="p_appdemo_goods_delete"/>
+    <suit key="goodsManagement.deleteGoods" value="p_appdemo_goods_create"/>
+    <import namespace="attach" file="PermmisonSuit-attach.xml" />
+    -->
+	
+	<suit key="channelManagement.*" value="p_web_sysAdmin"/>
+	<!--<suit key="infoCollectionAction.*" value="p_web_infoCollection"/>-->
+</permmisonsuit>

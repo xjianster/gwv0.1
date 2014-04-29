@@ -1,0 +1,52 @@
+8
+
+dir
+318
+http://211.144.118.26/svn/repos/self2/WebRoot/service
+http://211.144.118.26/svn/repos/self2
+
+
+
+2011-03-18T04:47:00.840089Z
+292
+zhaoxa
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a11755f8-5ed1-47df-9628-0a3a5de065b5
+
+servicedetail.vm
+file
+
+
+
+
+2011-03-21T10:18:40.781250Z
+ed18fd258c7ed280e705bcf5810bb59c
+2011-03-18T04:47:00.840089Z
+292
+zhaoxa
+
+servicelist.vm
+file
+
+
+
+
+2011-03-21T10:18:40.796875Z
+130ccba3b0a902608cd6d3040bd2fc0c
+2011-03-18T04:47:00.840089Z
+292
+zhaoxa
+

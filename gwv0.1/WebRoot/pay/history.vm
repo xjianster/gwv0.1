@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>用户中心-账单查询</title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="css/common.css" rel="stylesheet" type="text/css">
+		<link href="css/account.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/stb.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				commonInit(function(){$('#startTime').focus();});
+				payInit(function(){$('#startTime').focus();});
+				$('#startTime').keydown(function(event){
+						var myEvent = (event) ? event : ((window.event) ? window.event : "") ;
+						var srcObj = myEvent.srcElement ? myEvent.srcElement : myEvent.target;	
+    					var key = myEvent.keyCode?myEvent.keyCode:myEvent.which;
+    					if((key==Key.backKey)||(key==Key.returnKey)){
+	 						goback();
+	 					}
+	 					if(key==Key.upKey){
+	 						$('a:first','#menu2list').focus();
+	 					}
+				});
+				$('#endTime').keydown(function(event){
+						var myEvent = (event) ? event : ((window.event) ? window.event : "") ;
+						var srcObj = myEvent.srcElement ? myEvent.srcElement : myEvent.target;	
+    					var key = myEvent.keyCode?myEvent.keyCode:myEvent.which;
+    					if((key==Key.backKey)||(key==Key.returnKey)){
+	 						goback();
+	 					}
+	 					if(key==Key.downKey){
+	 						$('#confirm').focus();
+	 					}
+				});
+				
+				$('#buttonTr').horizontalListContainer('endTime','month3');
+				$('#shortcutContainer').horizontalListContainer('confirm',null);
+  				bindButton('confirm',function(){$('#form').submit();});
+  				bindButton('reset',function(){
+  					$("input[type='text']","#form").attr('value',getDate());
+  				});
+  				bindButton('month3',function(){
+  					$("input[name='method']","#form").attr('value','queryHistory3Month');
+  					$('#form').submit();}
+  				);
+  				bindButton('month6',function(){
+  					$("input[name='method']","#form").attr('value','queryHistory6Month');
+  					$('#form').submit();}
+  				);
+  				$("input[type='text']","#form").attr('value',getDate());
+				$('#startTime').focus();
+			});
+		</script>
+	</head>
+	<body>
+		<iframe id="barframe" src="bar.vm"></iframe>
+		<div id="main">
+			<div id="menu1">
+  				<ul id="menu1list"></ul>
+  			</div>
+			<div id="menu2">
+				<ul id="menu2list"></ul>
+			</div>
+			<div id="content">
+				<form id="form" method="post" action="$link.setAction("/rechargeMana")">
+					<input type="hidden" name="method" value="queryHistory"/>
+					<div class="inputitem">
+						<label>开始日期：&nbsp;</label><div class="inputwrapper"><a href="javascript:void(0);RL=0&LL=0"><input id="startTime" type="text" class="text" name="startTime"></a></div>
+					</div>
+					<div class="inputitem">
+						<label>结束日期：&nbsp;</label><div class="inputwrapper"><a href="javascript:void(0);RL=0&LL=0"><input id="endTime" type="text" class="text" name="endTime"></a></div>
+					</div>
+					<table class="butsContainer">
+					<tr id="buttonTr">
+						<td><a class="button confirm" id="confirm" href=""></a></td>
+						<td style="width:50px"></td>
+						<td><a class="button reset" id="reset" href=""></a></td>
+					</tr>
+					</table>
+					<p id="shortcutContainer">
+						您可以点击以下链接查询前&nbsp;<a class="shortcut month3" id="month3" href=""></a><a class="shortcut month6" id="month6" href=""></a>&nbsp;支付历史
+					</p>
+				</form>
+			</div>
+		</div>
+		<div id="bottom"></div>
+	</body>
+</html>

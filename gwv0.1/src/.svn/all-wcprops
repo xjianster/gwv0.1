@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/repos/self2/!svn/ver/246/src
+END
+ehcache.xml
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/repos/self2/!svn/ver/1/src/ehcache.xml
+END
+systemProperties.xml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/repos/self2/!svn/ver/123/src/systemProperties.xml
+END
+sysConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/repos/self2/!svn/ver/123/src/sysConfig.xml
+END
+bean-context-ejb.xml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/repos/self2/!svn/ver/123/src/bean-context-ejb.xml
+END
+bean-context-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/repos/self2/!svn/ver/241/src/bean-context-service.xml
+END
+bean-context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/repos/self2/!svn/ver/123/src/bean-context.xml
+END
+log4j.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/repos/self2/!svn/ver/1/src/log4j.dtd
+END
+PermmisonSuit.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/repos/self2/!svn/ver/1/src/PermmisonSuit.xml
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/repos/self2/!svn/ver/1/src/log4j.xml
+END

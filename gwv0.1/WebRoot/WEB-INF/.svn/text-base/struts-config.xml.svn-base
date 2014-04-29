@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <global-exceptions>
+    <exception handler="dsp.ngoss.self.commons.exception.BusinessExceptionHandler" 
+               key="exception" 
+               path="/commons/error_business.jsp" 
+               scope="request" 
+               type="dsp.ngoss.self.commons.exception.BusinessException" />
+    <exception handler="dsp.ngoss.self.commons.exception.SystemExceptionHandler" 
+               key="exception" 
+               path="/commons/error_system.jsp" 
+               scope="request" 
+               type="dsp.ngoss.self.commons.exception.SystemException" />
+    <exception handler="dsp.ngoss.self.commons.exception.GeneralFailureExceptionHandler" 
+               key="exception" 
+               path="/commons/error.jsp" 
+               scope="request" 
+               type="dsp.ngoss.self.commons.exception.GeneralFailureException" />
+  </global-exceptions>
+
+  <global-forwards>
+       <forward name="tableDisplay" path="/commons/tableDisplay.jsp"></forward>
+       <forward name="tableDisplay2" path="/commons/tableDisplay2.jsp"></forward>
+       <forward name="error" path="/commons/error.jsp"/>
+       <forward name="test" path="/commons/test.jsp"/>
+       <forward name="index" path="/index.vm"></forward>
+       <forward name="building" path="/building.jsp"></forward>
+       <forward name="success" path="/success.jsp"></forward>
+  </global-forwards>
+
+  <action-mappings>
+    
+     <action
+        type="dsp.ngoss.self.action.AccountQueryAction"
+        parameter="method"
+        scope="request"
+        path="/accountQueryAction" > 
+        <forward name="book" path="/account/book.vm"></forward>
+        <forward name="bookResult" path="/account/bookresult.vm"></forward>
+        <forward name="charge" path="/account/charge.vm"></forward>
+        <forward name="chargeResult" path="/account/chargeresult.vm"></forward>
+        <forward name="detail" path="/account/detail.vm"></forward>
+        <forward name="detailResult" path="/account/detailresult.vm"></forward>
+        <forward name="detailThisMonth" path="/account/detailthismonth.vm"></forward>
+      </action>
+        
+      <action
+        type="dsp.ngoss.self.action.LoginAction"
+        parameter="method"
+        scope="request"
+        path="/login" > 
+        <forward name="regTip" path="/regTip.jsp"></forward>
+        <forward name="login" path="/login.jsp"></forward>    
+        <forward name="custInfo" path="/custInfo.jsp"></forward>
+        <forward name="subcustList" path="/subcustList.jsp"></forward>
+        <forward name="STBfail" path="/underconstruction.vm"></forward>
+      </action>   
+        
+      <action
+        type="dsp.ngoss.self.action.UserManaAction"
+        parameter="method"
+        scope="request"
+        path="/userMana" > 
+        <forward name="userManaMain" path="/userMana/userManaMain.jsp"></forward>
+        <forward name="updateCustInfo" path="/userMana/updateCustInfo.jsp"></forward>
+        <forward name="updateCustInfoFrame" path="/userMana/updateCustInfoFrame.jsp"></forward>
+        <forward name="userManaMain" path="/userMana/userManaMain.jsp"></forward>
+        <forward name="updatePwdFrame" path="/userMana/updatePwdFrame.jsp"></forward>
+        <forward name="updatePwd" path="/userMana/updatePwd.jsp"></forward>
+        <forward name="userLog" path="/userMana/userLog.jsp"></forward>
+        <forward name="userLogList" path="/userMana/userLogList.jsp"></forward>
+        <forward name="userLogListFrame" path="/userMana/userLogListFrame.jsp"></forward>
+        <forward name="userLogDetail" path="/userMana/userLogDetail.jsp"></forward>
+      </action>
+        
+     <!-- 业务办理的action -->   
+     <action
+        type="dsp.ngoss.self.action.ProductManaAction"
+        parameter="method"
+        scope="request"
+        path="/productMana" >
+        <forward name="main" path="/productMana/productManaMain.jsp"></forward>
+        <forward name="productStatus" path="/productMana/productStatusMana.jsp"></forward>
+        <forward name="productDetailOne" path="/productMana/productDetailOne.jsp"></forward>
+        <forward name="orderDetailOne" path="/productMana/orderDetailOne.jsp"></forward>
+        <forward name="result" path="/productMana/result.jsp"></forward>
+        <forward name="toReduceProduct" path="/productMana/productReduce.jsp"></forward>
+        <forward name="toAddProduct" path="/productMana/productAddMain.jsp"></forward>
+        <forward name="toAddProductDetail" path="/productMana/productAdd.jsp"></forward>
+        <forward name="toReduceMainProduct" path="/productMana/productReduceMain.jsp"></forward>
+        <forward name="AddProductDetail" path="/productMana/productDetailTwo.jsp"></forward>
+        <forward name="getStopInfo" path="/productMana/getStopInfo.jsp"></forward>
+        <forward name="stopform" path="/productMana/stopform.jsp"></forward>
+        <forward name="getStartInfo" path="/productMana/getStartInfo.jsp"></forward>
+        <forward name="startform" path="/productMana/startform.jsp"></forward>
+        <forward name="addProductAct" path="/productMana/addProductAct.jsp"></forward>
+        <forward name="addProductAct2" path="/productMana/addProductAct2.jsp"></forward>
+        <forward name="conProductInfo" path="/productMana/conProductInfo.jsp"></forward>
+        <forward name="preProductManaMain" path="/preProductMana/preProductManaMain.jsp"></forward>
+        <forward name="preMoveInfo" path="/preProductMana/preMoveInfo.jsp"></forward>
+        <forward name="moveInfoSuccess" path="/preProductMana/success.jsp"></forward>
+        <forward name="preMoveInfoFrame" path="/preProductMana/preMoveInfoFrame.jsp"></forward>
+        <forward name="preRegistInfo" path="/preProductMana/preRegistInfo.jsp"></forward>
+        <forward name="latestOrders" path="/productMana/latestOrders.jsp"></forward>
+        <forward name="toQueryOrder" path="/productMana/toQueryOrder.jsp"></forward>
+        <forward name="toConfirmFee" path="/productMana/confirmFee.jsp"></forward>
+        <forward name="confirmReduce" path="/productMana/confirmReduce.jsp"></forward>
+
+     </action>  
+     
+     <!-- 充值管理 -->
+     <action 
+     type="dsp.ngoss.self.action.RechargeManaAction"
+     parameter="method"
+     scope="request"
+     path="/rechargeMana">
+     <forward name="toHistory" path="/pay/history.vm"></forward>
+     <forward name="toHistoryResult" path="/pay/historyResult.vm"></forward>
+     <forward name="toRecharge"  path="/pay/recharge.vm"></forward>
+     <forward name="alipayWapTrade" path="/service/alipayWapTrade"></forward>
+     <forward name="backToPortal" path="/pay/backtoportal.jsp"></forward>
+     <forward name="merchantUrl" path="/pay/paysuccess.jsp"></forward>
+     <forward name="shopMain" path="/rechargeMana/shopMain.jsp"></forward>
+     <forward name="showShopOrder" path="/rechargeMana/shopOrders.jsp"></forward>
+     <forward name="shopOrderRecharge" path="/rechargeMana/shopOrderRecharge.jsp"></forward>
+     <forward name="shopOrderRecharge2" path="/rechargeMana/shopOrderRecharge2.jsp"></forward>
+     <forward name="shopRechargeSuccess" path="/rechargeMana/paySuccess.jsp"></forward>
+     <forward name="shopRechargeSuccess2" path="/rechargeMana/paySuccess2.jsp"></forward>
+     </action>
+
+     
+     
+       
+     </action-mappings>
+
+</struts-config>

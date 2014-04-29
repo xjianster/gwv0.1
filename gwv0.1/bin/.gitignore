@@ -1,0 +1,8 @@
+/.svn/
+/com/
+/log4j.properties
+/log4j.properties.bak
+/logging.properties
+/orm-config.properties
+/spring-ioc.xml
+/spring-mvc.xml

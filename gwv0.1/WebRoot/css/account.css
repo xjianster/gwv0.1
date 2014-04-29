@@ -1,0 +1,56 @@
+#monthTable{
+	border-spacing:10px 20px;
+}
+#monthTable input{
+	display:none;	
+}
+#monthTable td{
+	width:150px; height:26px;	
+	text-align:center;
+}
+#monthTable td a{
+	font-size:22px;
+	color:#39f;
+	font-weight:bold;
+	line-height:26px;
+}
+#monthTable td a:focus{
+	color:#FFF;
+}
+#monthTable label{
+	padding-left:5px;
+}
+
+.shortcut{
+	display:inline-block;
+	background:url(../img/shortcut.png) no-repeat;
+	width:72px;height:27px;
+	margin:29px 9px;
+	vertical-align:middle;
+}
+.shortcut.focus{
+	margin:0px;
+	width:130px;height:45px;
+}
+.shortcut.month3{
+	background-position:-4px -10px;
+}
+.shortcut.month3.focus{
+	background-position:-86px 0px;
+}
+.shortcut.month6{
+	background-position:-4px -60px;
+}
+.shortcut.month6.focus{
+	background-position:-86px -50px;
+}
+
+#shortcutContainer{
+	position:absolute;
+	bottom:20px;
+	width:100%;
+	font-size:22px;
+	color:#39f;
+	font-weight:bold;
+	text-align:center;
+}

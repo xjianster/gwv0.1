@@ -1,0 +1,17 @@
+.detail {position:absolute; left:45px; top:30px; overflow:hidden;}
+.detail table{border:1px solid #666;border-collapse:collapse;}
+.detail tr{width:1000px; font-size:24px; color:#39f; line-height:40px; border:1px solid #666;}
+.detail tr span{display:block; width:310px; height:40px; color:#39f; overflow:hidden; white-space:nowrap;}
+.detail td{font-size:24px; color:#39f; line-height:44px; border:1px solid #666;}
+.trbar{position:absolute; left:360px; top:48px; width:170px; height:45px; background:url(../img/lid_menu2.png); opacity:0;}
+.con{position:absolute; width:550px; height:240px; left:330px; top:50px; overflow:hidden;}
+.con .conlist{position:relative; width:250px; height:240px; left:0px; top:0px;}
+.con .conlist table{display:inline-block; width:250px; height:360px;}
+.con .conlist tr{display:block;width:150px; height:40px; line-height:40px;}
+.con .conlist strong{display:block; width:40px; height:40px; text-align:center; color:#999;}
+.con .conlist span{display:block; width:310px; height:40px; color:#39f; overflow:hidden; white-space:nowrap;}
+.con .conlist a:focus span{color:#FFF;}
+.buyservice {position:absolute; left:400px; top:250px; width:180px; height:50px; text-align:center; font-weight:bold;}
+.buyservice a{display:block; width:170px; height:45px; font-size:26px; color:#39f; line-height:50px; text-align:center; font-weight:bold;}
+.buyservice a:focus{color:#fff; background:url(../img/lid_menu2.png);}
+

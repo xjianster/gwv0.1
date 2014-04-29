@@ -1,0 +1,38 @@
+
+#alipayDialog{
+	position:absolute;
+	margin:50px auto;
+	width:480px;height:620px;
+	left:400px;
+	z-index:1000;
+	background-color:rgb(213,233,255);
+	-webkit-border-radius: 10px;
+	display:none;
+}
+#alipayFrame{
+	position:relative;
+	z-index:1001;
+	padding:10px;
+	padding-bottom:21px;
+	width:380px;height:590px;
+}
+#downTip{
+	position:absolute;
+	background:url(../img/downTip.png) no-repeat;
+	width:94px;height:21px;
+	bottom:0px;
+	z-index:1001;
+	left:193px;
+}
+#return{
+	display:block;
+	position:absolute;
+	background:url(../img/return.png) no-repeat;
+	top:10px;
+	right:5px;
+	z-index:1001;
+	width:108px;height:42px;
+}
+#return.focus{
+	background-position:0px -46px;
+}

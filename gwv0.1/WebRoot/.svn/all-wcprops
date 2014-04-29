@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/repos/self2/!svn/ver/318/WebRoot
+END
+test.vm
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/repos/self2/!svn/ver/303/WebRoot/test.vm
+END
+stblogin.vm
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/repos/self2/!svn/ver/308/WebRoot/stblogin.vm
+END
+test2.vm
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/repos/self2/!svn/ver/302/WebRoot/test2.vm
+END
+bar.vm
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/repos/self2/!svn/ver/134/WebRoot/bar.vm
+END
+index.vm
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/repos/self2/!svn/ver/306/WebRoot/index.vm
+END
+underconstruction.vm
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/repos/self2/!svn/ver/13/WebRoot/underconstruction.vm
+END

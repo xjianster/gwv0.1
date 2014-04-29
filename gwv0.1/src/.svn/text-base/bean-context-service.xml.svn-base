@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+
+	<!-- service -->
+	<bean id="rechargeManaService"
+		class="dsp.ngoss.self.service.RechargeManaService">
+		<property name="orgService" ref="orgService" />
+		<property name="crmService" ref="crmService" />
+		<property name="accountService2" ref="accountService2"></property>
+		<property name="policyService" ref="policyService"></property>
+		<property name="selfSaleService" ref="selfSaleService" />
+		<property name="paymentService" ref="paymentService"></property>
+		<property name="productPortService" ref="productPortService" />
+	</bean>
+	<bean id="productService"
+		class="dsp.ngoss.self.service.ProductManaService">
+		<property name="crmService" ref="crmService" />
+		<property name="policyService" ref="policyService" />
+		<property name="accountService2" ref="accountService2" />
+		<property name="productPortService" ref="productPortService" />
+		<property name="selfSaleService" ref="selfSaleService" />
+		<property name="orgService" ref="orgService" />
+		<property name="workOrderService" ref="workOrderService"/>
+	</bean>
+	<bean id="productService2"
+		class="dsp.ngoss.self.service.ProductManaService2">
+		<property name="crmService" ref="crmService" />
+		<property name="policyService" ref="policyService" />
+		<property name="accountService2" ref="accountService2" />
+		<property name="productPortService" ref="productPortService" />
+		<property name="selfSaleService" ref="selfSaleService" />
+		<property name="orgService" ref="orgService" />
+		<property name="paymentService" ref="paymentService"/>
+		<property name="productService" ref="productService"/>
+	</bean>
+	<bean id="loginService"
+		class="dsp.ngoss.self.service.LoginService">
+		<property name="crmService" ref="crmService" />
+		<property name="exitURL" value="config" />
+	</bean>
+	<bean id="accountService" class="dsp.ngoss.self.service.AccountQueryService">
+		<property name="chargeService" ref="chargeService"/>
+		<property name="accountService2" ref="accountService2"/>
+		<property name="policyService" ref="policyService"/>
+		<property name="crmService" ref="crmService"/>
+		<property name="productPortService" ref="productPortService"/>
+	</bean>
+	<bean id="bossService" class="dsp.ngoss.self.service.BOSSService">
+		<property name="crmService" ref="crmService"></property>
+		<property name="accountService2" ref="accountService2"></property>
+		<property name="paymentService" ref="paymentService"></property>
+		<property name="billingDetailService" ref="bdService"></property>
+	</bean>
+
+	
+	<!-- delegate -->
+	<bean id="rechargeManaDelegate" class="dsp.ngoss.self.delegate.RechargeManaDelegate">
+		<property name="rechargeManaService" ref="rechargeManaService"/>
+	</bean>
+	<bean id="productManaDelegate"
+		class="dsp.ngoss.self.delegate.ProductManaDelegate">
+		<property name="productService" ref="productService"/>
+		<property name="productService2" ref="productService2"/>
+	</bean>
+	<bean id="loginDelegate"
+		class="dsp.ngoss.self.delegate.LoginDelegate">
+		<property name="loginService" ref="loginService"/>
+	</bean>
+	<bean id="accountDelegate" class="dsp.ngoss.self.delegate.AccountQueryDelegate">
+		<property name="accountQueryService" ref="accountService"/>
+	</bean>
+	
+	
+</beans>

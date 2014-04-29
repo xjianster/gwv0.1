@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <action-mappings>
+     <action
+        type="dsp.ngoss.self2.action.PayAction"
+        parameter="method"
+        scope="request"
+        path="/pay" > 
+        <forward name="alipayWapTrade" path="/service/alipayWapTrade"></forward>
+        <forward name="backToPortal" path="/pay/backtoportal.jsp"></forward>
+        <forward name="merchantUrl" path="/pay/paysuccess.jsp"></forward>
+        <!--forward name="accountsQueryHisList" path="/accountsQuery/accountsQueryHisList.jsp"></forward-->
+      </action>
+      
+    <action
+        type="dsp.ngoss.self2.action.YeePayAction"
+        parameter="method"
+        scope="request"
+        path="/yeepay" > 
+        <forward name="yeepayRegistLmzh" path="/rechargeMana/confirmRegistLmzh.jsp"></forward>
+        <forward name="yeepayCardRecharge" path="/rechargeMana/rechargeOfSubCustomerByYeepay.jsp"></forward>
+      </action>
+  </action-mappings>
+</struts-config>

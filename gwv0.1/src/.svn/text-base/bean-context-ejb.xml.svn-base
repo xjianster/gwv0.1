@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+	
+	 
+	
+	<!-- 定义EJB的JNDI属性 -->
+	<bean id="jndiProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	  <property name="properties">
+	    <props> 
+	      <prop key="java.naming.factory.initial">org.openejb.client.RemoteInitialContextFactory</prop>
+	      <prop key="java.naming.provider.url">ejbd://192.168.100.3:4201</prop>
+	      <prop key="java.naming.rmi.security.manager">no</prop>
+          <prop key="java.naming.factory.url.pkgs">org.apache.geronimo.naming</prop>
+	    </props>
+	  </property>
+	</bean>
+	<!-- CRM EJB 接口的定义 -->
+    <!--jee:remote-slsb id="crmService" 
+                     business-interface="dsp.ngoss.crm.ICrmService" 
+                     jndi-name="CrmServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb-->
+	<!-- Policy EJB 接口的定义 -->
+    <jee:remote-slsb id="policyService" 
+                     business-interface="dsp.ngoss.account.IPolicyService" 
+                     jndi-name="PolicyServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb> 
+    <!-- chargeService EJB 接口的定义 -->
+    <jee:remote-slsb id="chargeService" 
+                     business-interface="dsp.ngoss.account.IChargeService" 
+                     jndi-name="ChargeServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb>
+    <!-- chargeService EJB 接口的定义 -->
+    <jee:remote-slsb id="accountService2" 
+                     business-interface="dsp.ngoss.account.IAccountService2" 
+                     jndi-name="AccountServiceBean2Remote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb> 
+    <!-- productService EJB 接口的定义 -->
+    <jee:remote-slsb id="productPortService" 
+                     business-interface="dsp.ngoss.product.IProductService" 
+                     jndi-name="ProductServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb>
+     <!-- orgService EJB 接口的定义 -->
+    <jee:remote-slsb id="orgService" 
+                     business-interface="dsp.ngoss.org.IOrgService" 
+                     jndi-name="OrgServiceRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb>
+    <!-- pointService EJB 接口的定义 -->
+    <jee:remote-slsb id="pointService" 
+                     business-interface="dsp.ngoss.point.IPointService" 
+                     jndi-name="PointServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb>
+     <!-- selfSaleService EJB 接口的定义 -->
+    <jee:remote-slsb id="selfSaleService" 
+                     business-interface="dsp.ngoss.sale.ISelfSaleService" 
+                     jndi-name="SelfSaleServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb>
+    <!-- pointExchangeService EJB 接口的定义 -->
+    <jee:remote-slsb id="pointExchangeService" 
+                     business-interface="dsp.ngoss.point.IPointExchangeService" 
+                     jndi-name="PointExchangeServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb>
+     <!-- pointExchangeService EJB 接口的定义 -->
+    <jee:remote-slsb id="workOrderService" 
+                     business-interface="dsp.ngoss.workorder.IWorkOrderService" 
+                     jndi-name="WorkOrderServiceRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb>
+    <!-- pointCouponRechargeService EJB 接口的定义 -->
+    <jee:remote-slsb id="pointCouponRechargeService" 
+                     business-interface="dsp.ngoss.point.IPointCouponRechargeService" 
+                     jndi-name="PointCouponRechargeServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb>
+    
+      <!-- customerService EJB 接口的定义 -->
+    <!--jee:remote-slsb id="customerService" 
+                     business-interface="dsp.ngoss.customer.ICustomerService" 
+                     jndi-name="CustomerServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb-->
+    
+
+    <!-- iPaymentService EJB 接口的定义 -->
+    <jee:remote-slsb id="paymentService" 
+                     business-interface="dsp.ngoss.payment.IPaymentService" 
+                     jndi-name="PaymentServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb>   
+    
+    <!-- IPointChargeService EJB 接口的定义 -->
+    <jee:remote-slsb id="pointChargeService" 
+                     business-interface="dsp.ngoss.point.IPointChargeService" 
+                     jndi-name="PointChargeServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb> 
+    
+    <!-- billingDetailService EJB 接口的定义 -->
+    <jee:remote-slsb id="bdService" 
+                     business-interface="dsp.ngoss.cmp.IBillingDetailService" 
+                     jndi-name="BillingDetailServiceBeanRemote"
+                     environment-ref="jndiProperties" 
+                     cache-home="true" >
+    </jee:remote-slsb> 
+</beans>

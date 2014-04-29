@@ -1,0 +1,121 @@
+8
+
+dir
+318
+http://211.144.118.26/svn/repos/self2/WebRoot
+http://211.144.118.26/svn/repos/self2
+
+
+
+2011-03-21T07:51:53.340433Z
+318
+xiab
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a11755f8-5ed1-47df-9628-0a3a5de065b5
+
+service
+dir
+
+test.vm
+file
+
+
+
+
+2011-03-21T10:18:54.281250Z
+2e0141d8ed3376f50a74cf9eaaacc7da
+2011-03-21T05:24:30.150106Z
+303
+xiab
+
+stblogin.vm
+file
+
+
+
+
+2011-03-21T10:18:54.296875Z
+b223738853726ee614d6933c7365c71f
+2011-03-21T06:05:45.692120Z
+308
+xiab
+
+test2.vm
+file
+
+
+
+
+2011-03-21T10:18:54.312500Z
+130ccba3b0a902608cd6d3040bd2fc0c
+2011-03-21T05:23:03.427730Z
+302
+zhaoxa
+
+bar.vm
+file
+
+
+
+
+2011-03-21T10:18:54.328125Z
+503ee3ccce0e501b820b4d112f2e6055
+2011-03-11T02:34:17.161204Z
+134
+xiab
+
+WEB-INF
+dir
+
+css
+dir
+
+index.vm
+file
+
+
+
+
+2011-03-21T10:18:54.515625Z
+525ed44a3fb9d6f8acd470ae5eda4854
+2011-03-21T05:44:42.692668Z
+306
+xiab
+
+pay
+dir
+
+underconstruction.vm
+file
+
+
+
+
+2011-03-21T10:18:54.531250Z
+976a9a3f1beb28629a93ad0f20e03f9d
+2011-03-04T00:04:52.150556Z
+13
+xiab
+
+account
+dir
+
+img
+dir
+
+js
+dir
+

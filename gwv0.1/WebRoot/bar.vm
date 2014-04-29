@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>用户中心</title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="css/common.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/stb.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
+	</head>
+	<body onload="gettime()">
+		<div class="bar">
+			<div id="time" class="time"></div>
+			<div class="index"><a id="index" href="javascript:void(0);DL=0&LL=0" onkeydown="barKeyDown(event,0);"><span class="sp1"></span><span>首页</span></a></div>
+    		<div class="pas">用户中心</div>
+    		<div class="buts">
+    			<a class="bt1" href="javascript:void(0);DL=0" 
+    			onfocus="this.className='bt1h';" onblur="this.className='bt1';" 
+    			onMouseOver="this.className='bt1h';" onMouseOut="this.className='bt1';" 
+    			onkeydown="barKeyDown(event,'dl');"></a>
+    			<span></span>
+    			<a class="bt2" href="javascript:void(0);DL=0" 
+    			onfocus="this.className='bt2h';" onblur="this.className='bt2';" 
+    			onMouseOver="this.className='bt2h';" onMouseOut="this.className='bt2';" 
+    			onkeydown="barKeyDown(event,'cm');"></a>
+    			<span></span>
+    			<a class="bt3" href="javascript:void(0);RL=0&DL=0" 
+    			onfocus="this.className='bt3h';" onblur="this.className='bt3';" 
+    			onMouseOver="this.className='bt3h';" onMouseOut="this.className='bt3';" 
+    			onkeydown="barKeyDown(event,'sc');"></a>
+    		</div>
+    		<div class="logo"></div>
+    	</div>
+    	<script type="text/javascript">
+    		var timeTimer;
+			function gettime(){
+				var date = new Date();
+				$("#time").html(addzero(date.getHours())+":"+addzero(date.getMinutes()));
+				timeTimer = setTimeout(gettime,30000);
+			}
+		</script>
+	</body>
+</html>

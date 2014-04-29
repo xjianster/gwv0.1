@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<systemProperties>
+    <!-- === 设置BizFacade的配置文件名（可多个，以","分隔） ===================-->
+    <appContextCfgFiles>bean-context.xml</appContextCfgFiles>
+  
+      <!-- 新业务推荐文字描述所放路径
+    <newProdText>E:/newProd/text</newProdText> -->
+    <!-- 新业务推荐文件所放路径
+    <newProdScrollPic>newProd</newProdScrollPic> -->
+    <!-- 新业务推荐图片的格式 
+    <newProdPicType>bmp,jpg,jpeg,png,gif,hdr,tif,tga</newProdPicType>    -->
+   
+</systemProperties>

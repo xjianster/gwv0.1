@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	  <meta http-equiv="pragma" content="no-cache">
+	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>用户中心</title>
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/JavaScript">
+$(document).ready(function(){
+	if('$!session.getAttribute("USER_INFO")'){
+		window.location.href='index.vm';
+	}
+	login();
+});
+function login(){
+	var isToIndex = false;
+	if(typeof(callApp)=="function"){
+		var url = "login.do?method=stbLogin";
+		var user = callApp("Get_User_Account");
+		if(user){
+			var token = user.indexOf("|");
+			if(token>0 && token!=user.length-1){
+				url = url.concat("&loginname=",user.substring(0,token),"&password=",user.substring(token+1));
+				isToIndex = true;
+				window.location.href=url;
+			}
+		}
+	}
+	if(!isToIndex){
+		callApp("JS_ShowInfo","登陆失败，请检查绑定的用户名和密码");
+		callApp("JS_GoHome");
+	}
+}
+</script>
+</head>
+<body>
+</body>
+</html>

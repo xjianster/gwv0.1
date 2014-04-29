@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/repos/self2/!svn/ver/303/WebRoot/WEB-INF
+END
+struts-config-regist.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/repos/self2/!svn/ver/1/WebRoot/WEB-INF/struts-config-regist.xml
+END
+toolbox.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/repos/self2/!svn/ver/1/WebRoot/WEB-INF/toolbox.xml
+END
+struts-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/repos/self2/!svn/ver/242/WebRoot/WEB-INF/struts-config.xml
+END
+struts-config2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/repos/self2/!svn/ver/1/WebRoot/WEB-INF/struts-config2.xml
+END
+geronimo-web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/repos/self2/!svn/ver/1/WebRoot/WEB-INF/geronimo-web.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/repos/self2/!svn/ver/303/WebRoot/WEB-INF/web.xml
+END

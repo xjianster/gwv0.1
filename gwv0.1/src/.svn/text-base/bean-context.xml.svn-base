@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+    
+    <!-- 导入需要的其他配置 -->
+    <import resource="bean-context-ejb.xml" />
+    <import resource="bean-context-service.xml" />
+    
+    <!-- <import resource="bean-context-common.xml" /> -->
+    
+    <!--=====================================================================-->
+    <!-- JNDI定义 -->
+    <!--=====================================================================-->
+    <!--<bean id="jndiTemplate"
+        class="org.springframework.jndi.JndiTemplate" lazy-init="true">
+        <description>
+            定义一个用作模板的JNDI，可以被其它bean引用
+            这个模板用于Weblogic JNDI环境，可以指定用于JNDI查找的weblogic所在位置
+                     需要使用weblogic提供的包:wlclient.jar
+        </description>
+        <property name="environment">
+            <props>
+                <prop key="java.naming.provider.url">t3://localhost:7001</prop>
+                <prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+            </props>
+        </property>
+    </bean>-->
+        
+    <!--=====================================================================-->
+    <!-- 数据源、事务管理定义 -->
+    <!--=====================================================================-->
+	<!--定义数据源：使用JNDI的数据源(要先行设置“jndiTemplate”)-->
+    <!-- 主数据源 
+    <bean id="WEB-DataSource"
+        class="org.springframework.jndi.JndiObjectFactoryBean" lazy-init="true">
+        <property name="jndiName">
+            <value>jdbc/dgqt/web</value>
+        </property>
+        <property name="jndiTemplate" ref="jndiTemplate" />
+    </bean>-->
+
+    <!-- 主数据源(支持分布式事务) 
+    <bean id="WEB-TxnDataSource"
+        class="org.springframework.jndi.JndiObjectFactoryBean" lazy-init="true">
+        <property name="jndiName">
+            <value>jdbc/dgqt/web_txn</value>
+        </property>
+        <property name="jndiTemplate" ref="jndiTemplate" />
+    </bean>-->
+    
+    <!-- 从数据源（或分局数据源）
+    <bean id="PLATFORM-DataSource"
+        class="org.springframework.jndi.JndiObjectFactoryBean" lazy-init="true">
+        <property name="jndiName">
+            <value>platform</value>
+        </property>
+        <property name="jndiTemplate" ref="jndiTemplate" />
+    </bean> -->
+
+    <!-- 定义事务管理器：Spring封装的基于WEBLOGIC JTA实现的事务管理器
+	<bean id="txManager" name="txManager" class="org.springframework.transaction.jta.JtaTransactionManager" lazy-init="true">
+      <property name="jndiTemplate" ref="jndiTemplate"/>
+      <property name="defaultTimeout" value="3600"/>
+    </bean> -->
+
+     
+    <!-- 定义 JDBC Connection 的工厂实现类
+    <bean id="connectionFactory" class="com.excelzk.platform.framework.integration.conn.DataSourceConnectionFactory" 
+          scope="singleton" init-method="init">
+      <property name="keywordsMeaning" value="业务代码" />　-->
+      <!-- 定义默认的数据源名称
+      <property name="defaultDataSourceName" value="WEB-DataSource" /> -->
+      <!-- 引入业务代码和数据源名称的映射关系 
+      <property name="keywordsDataSourceMapping">
+        <map>
+         <entry key="PLATFORM" value="PLATFORM-DataSource" />
+	     <entry key="WEB" value="WEB-DataSource" />
+ 	     <entry key="WEB-TXN" value="WEB-TxnDataSource"/>
+        </map>
+      </property>
+    </bean>-->
+    
+    <!-- AOP方式的事务声明 
+	<aop:config proxy-target-class="true">
+	
+		<aop:pointcut id="txPointcut" expression="execution(* subBoss.test.delegate.*Delegate.*(..))"/>
+		<aop:pointcut id="txPointcut_superviseService" expression="execution(* subBoss.test.service.*Service.*(..))"/>
+		<aop:advisor pointcut-ref="txPointcut"  advice-ref="txAdvice" />
+		
+		<aop:advisor pointcut-ref="txPointcut_superviseService"  advice-ref="txAdvice_superviseService" />
+	</aop:config> 
+
+	<tx:advice id="txAdvice" transaction-manager="txManager" >
+		<tx:attributes >
+			<tx:method name="to*"    read-only="true" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="Info*"    read-only="true" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="get*"    read-only="true" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="find*"   read-only="true" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="search*" read-only="true" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="list*"   read-only="true" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="query*"  read-only="true" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="validate*"  read-only="true" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="set*"    rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="save*"   rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="update*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="create*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="insert*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="delete*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="remove*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="commit*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="modify*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="execute*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="send"    rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="publish*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="cancel*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="accept*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="reply*"  rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="add*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="edit*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+			<tx:method name="info*" rollback-for="com.excelzk.commons.exception.GeneralFailureException"/>
+		</tx:attributes>
+	</tx:advice>
+
+	
+    <tx:advice id="txAdvice_service" transaction-manager="txManager" > 
+    	<tx:attributes >
+    		<tx:method name="autoSendMessage" rollback-for="java.lang.Exception"/>
+    		<tx:method name="sendMsgToUser"  rollback-for="java.lang.Exception"/>
+    		<tx:method name="sendMsgToAddrs"  rollback-for="java.lang.Exception"/>
+    	</tx:attributes>
+    </tx:advice>
+
+     
+    <tx:advice id="txAdvice_importService" transaction-manager="txManager" >
+    	<tx:attributes >
+    		<tx:method name="importEmail" rollback-for="java.lang.Exception"/>
+    	</tx:attributes>
+    </tx:advice>    
+    
+    <tx:advice id="txAdvice_superviseService" transaction-manager="txManager" >
+    	<tx:attributes >
+    		<tx:method name="batchNewMessage" rollback-for="java.lang.Exception"/>
+    		<tx:method name="batchDeleteMessage" rollback-for="java.lang.Exception"/>
+    	</tx:attributes>
+    </tx:advice>  -->  
+    
+    <!--=====================================================================-->
+    <!-- DAO定义
+          注意：由于GeneralDAOImpl对于JDBC Connection的状态依赖性，
+          因此所有继承GeneralDAOImpl而实现的DAO类，
+          作用域都应该被定义为“prototype”，而不能是“singleton”
+    -->
+    <!--=====================================================================-->
+    <!-- 为上层代码（Delegate/Service等）定义DaoFactory的实现类-->
+    <!-- bean id="daoFactory" 
+          class="com.excelzk.platform.framework.integration.dao.AppContextDAOFactory" 
+          scope="singleton" init-method="init"> -->
+      <!-- 注入ConnectionFactory 
+      <property name="connectionFactory" ref="connectionFactory" />
+    </bean> -->
+          
+    
+    <!-- 定义通用的GeneralDAO 
+    <bean id="generalDAO" class="com.excelzk.commons.database.GeneralDAOImpl" scope="prototype">
+    </bean>-->
+    <!-- 定义项目自己实现的DAO（需继承GeneralDAOImpl） -->
+
+    <!--=====================================================================-->
+    <!-- 列表控件（ListUtil）定义(注意：ListUtil不能配置为单例！！！) -->
+    <!--=====================================================================-->
+    <!-- 为调用代码（Delegate/Service等）定义IListUtilFactory的实现类
+    <bean id="listUtilFactory" 
+          class="com.excelzk.platform.framework.util.AppContextListUtilFactory" 
+          scope="singleton" init-method="init">
+      <property name="connectionFactory" ref="connectionFactory" />
+    </bean> -->
+
+
+</beans>

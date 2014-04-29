@@ -1,0 +1,17 @@
+#############################################
+# Build Properties of DSP-Self Project
+#############################################
+
+project.name=self2
+
+project.version=2.0
+
+project.exlib=exlib
+
+project.lib=lib
+
+#ejb
+
+ejb.ip=127.0.0.1
+ejb.port=4201
+
